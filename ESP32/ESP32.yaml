@@ -1,0 +1,31 @@
+esphome:
+  name: teleinfo
+  platform: ESP32
+  board: esp-wrover-kit
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+  
+  # Optional manual IP
+#  manual_ip:
+#    static_ip: <ESP32 IP>
+#    gateway: <GATEWAY IP>
+#    subnet: <SUBNET MASK>
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Teleinfo Fallback Hotspot"
+    password: !secret ap_pass
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret ota_pass
+
+ota:
+  password: !secret ota_pass
